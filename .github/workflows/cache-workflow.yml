@@ -30,10 +30,11 @@ jobs:
             
       - name: prime-cache-02359b9
         run: |
-          if [ "${{ steps.cache-deps.outputs.cache-hit }}" == 'true' ]; then
-            echo "Cache hit for cache-02359b9"
+          echo "Cache hit: ${{ steps.cache-deps.outputs.cache-hit }}"
+          if [[ "${{ steps.cache-deps.outputs.cache-hit }}" == 'true' ]]; then
+            echo "✅ Cache hit for cache-02359b9"
           else
-            echo "Cache miss for cache-02359b9"
+            echo "❌ Cache miss for cache-02359b9"
           fi
           
       - name: Install dependencies
